@@ -11,7 +11,7 @@ def database():
     conn = mysql.connector.connect(host='localhost',
                                     database='pos',
                                     user='ben',
-                                    password='dnwE$8z-M8XqE#Bk')
+                                    password='*Nr2?Zh?8^6e5Lap')
     cursor = conn.cursor()
     
 
@@ -139,37 +139,31 @@ def register():
     # Defining the first row
     lblfrstrow = tk.Label(root, text ="First Name:", fg = 'blue', )
     lblfrstrow.place(x = 120, y = 50)
-    
     firstname = tk.Entry(root, width = 35)
     firstname.place(x = 250, y = 50, width = 150)
-    
+
     lblsecrow = tk.Label(root, text ="Last Name:", fg = 'blue', )
     lblsecrow.place(x = 120, y = 100)
-    
     lastname = tk.Entry(root, width = 35)
     lastname.place(x = 250, y = 100, width = 150)
 
     lblrow6 = tk.Label(root, text ="Position:", fg = 'blue',)
     lblrow6.place(x = 120, y = 150)
-    
     position = tk.Entry(root, width = 35)
     position.place(x = 250, y = 150, width = 150)
 
     lblrow3 = tk.Label(root, text ="Username:", fg = 'blue',)
     lblrow3.place(x = 120, y = 200)
-    
     username = tk.Entry(root, width = 35)
     username.place(x = 250, y = 200, width = 150)
-    
+
     lblrow4 = tk.Label(root, text ="password:", fg = 'blue',)
     lblrow4.place(x = 120, y = 250)
-    
     password = tk.Entry(root, width = 35)
     password.place(x = 250, y = 250, width = 150)
-    
+
     lblrow5 = tk.Label(root, text ="verify password:", fg = 'blue',)
     lblrow5.place(x = 120, y = 300)
-    
     password1 = tk.Entry(root, width = 35)
     password1.place(x = 250, y = 300, width = 150)
 
@@ -200,10 +194,58 @@ def addProduct():
     lblsecrow = tk.Label(root, text ="CLutch Center Registry", fg = 'blue',)
     lblsecrow.place(x = 170, y = 10)
     # Defining the first row
-    lblfrstrow = tk.Label(root, text ="Product ID:", fg = 'blue', )
+    lblfrstrow = tk.Label(root, text ="Product id:", fg = 'blue', )
     lblfrstrow.place(x = 120, y = 50)
-    firstname = tk.Entry(root, width = 35)
-    firstname.place(x = 250, y = 50, width = 150)
+    productId = tk.Entry(root, width = 35)
+    productId.place(x = 250, y = 50, width = 150)
+
+    lblsecrow = tk.Label(root, text ="Product Name:", fg = 'blue', )
+    lblsecrow.place(x = 120, y = 100)
+    ProductName = tk.Entry(root, width = 35)
+    ProductName.place(x = 250, y = 100, width = 150)
+
+    lblrow6 = tk.Label(root, text ="Product Cartegory", fg = 'blue',)
+    lblrow6.place(x = 120, y = 150)
+    ProductCartegory = tk.Entry(root, width = 35)
+    ProductCartegory.place(x = 250, y = 150, width = 150)
+
+    lblrow3 = tk.Label(root, text ="Product Description", fg = 'blue',)
+    lblrow3.place(x = 120, y = 200)
+    ProductDescription = tk.Entry(root, width = 35)
+    ProductDescription.place(x = 250, y = 200, width = 150)
+
+    lblrow4 = tk.Label(root, text ="Product Price", fg = 'blue',)
+    lblrow4.place(x = 120, y = 250)
+    ProductPrice = tk.Entry(root, width = 35)
+    ProductPrice.place(x = 250, y = 250, width = 150)
+
+    lblrow5 = tk.Label(root, text ="Option:", fg = 'blue',)
+    lblrow5.place(x = 120, y = 300)
+    password1 = tk.Entry(root, width = 35)
+    password1.place(x = 250, y = 300, width = 150)
+
+
+    # listbox = Listbox(root, bg, fg, bd, height, width, font, ..)
+    productlist = Listbox(root, fg = 'blue',)
+    productlist.place(x = 550, y = 10, width = 1000, height = 1000)
+
+    scrollbar = Scrollbar(root)
+    for values in range(100):
+        productlist.insert(END, values)
+    listbox.config(yscrollcommand = scrollbar.set)
+    scrollbar.config(command = listbox.yview)
+
+    submitbtn3 = tk.Button(root, text ="Register",bg ='blue', fg = 'white',command = lambda: registerCommit(root,firstname, lastname, username, position,password,password1))
+    submitbtn3.place(x = 200, y = 350, width = 70)
+
+    submitbtn2 = tk.Button(root, text ="exit",bg ='blue', fg = 'white',command= lambda: exit(root))
+    submitbtn2.place(x = 300, y = 350, width = 65)
+
+    submitbtn1 = tk.Button(root, text ="login",fg = 'blue',command= lambda: switch1(root))
+    submitbtn1.place(x = 300, y = 400, width = 100)
     
-    lblsecrow = tk.Label(root, text ="ProductName:", fg = 'blue', )
-    lblsecrow.place(x = 120, y = 100) 
+
+
+    root.mainloop()  
+
+addProduct()
