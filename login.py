@@ -187,11 +187,19 @@ def register():
 
 #create product
 def addProductCommit(root,productId, productName, productDescription,productCategory,productPrice):
+
+    productIdEntry = productId 
+    productNameEntry = productName
+    productCategoryEntry = productCategory
+    productDescriptionEntry  = productDescription
+    productPriceEntry = productPrice
+
     productId = productId.get()
     productName = productName.get()
     productCategory = productCategory.get()
     productDescription = productDescription.get()
     productPrice = productPrice.get()
+
     print('check')
     database()
     
@@ -200,27 +208,29 @@ def addProductCommit(root,productId, productName, productDescription,productCate
         cursor.reset()
         cursor.execute("SELECT * FROM `products` WHERE `productId` = %s AND `productName` = %s", (productId,productName,))
         product = cursor.fetchone()
+        cursor.reset()
+        cursor.execute("SELECT * FROM `products` WHERE `productId` = %s", (productId,))
+        product1 = cursor.fetchone()
+        found = False
         if product is not None:
             print(product)
             y = [product[0],product[1],product[2],product[3],product[4]]
-        cursor.reset()
-        cursor.execute("SELECT * FROM `products` WHERE `productId` = %s", (productId,))
-        product = cursor.fetchone()
-        if product is not None:
-            print(3)
-            product = cursor.fetchone()
+            found = True
+        elif product is not None:
+            print(product)
             y = [product[0],product[1],product[2],product[3],product[4]]
-        curItem = productlist.focus()
-        productId.delete(0,"end")
-        productId.insert(0,y[0])
-        productName.delete(0,"end")
-        productName.insert(0,y[0])
-        productDescription.delete(0,"end")
-        productDescription.insert(0,)
-        productCategory.delete(0,"end")
-        productCategory.insert(0,y[0])
-        productPrice.delete(0,"end")
-        productPrice.insert(0,y[0])    
+            found = True
+        if found == True:
+            productIdEntry.delete(0,"end")
+            productIdEntry.insert(0,y[0])
+            productNameEntry.delete(0,"end")
+            productNameEntry.insert(0,y[1])
+            productDescriptionEntry.delete(0,"end")
+            productDescriptionEntry.insert(0,y[2])
+            productCategoryEntry.delete(0,"end")
+            productCategoryEntry.insert(0,y[3])
+            productPriceEntry.delete(0,"end")
+            productPriceEntry.insert(0,y[4])    
     else:
         if productId == "" or productName == "" or productDescription == "" or productCategory == "" or  productPrice== "" :
             result = tkMessageBox.showerror('Error', 'You need to fill all fields')
