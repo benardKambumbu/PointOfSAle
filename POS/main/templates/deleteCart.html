@@ -1,0 +1,66 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>shop Tags </title>
+        <link rel = "shortcut icon" type="image/png" href=" /static/bk/assets/images/favcon.png">
+        <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     
+    </head>
+    <body style="height: 100% !Import;" >
+
+<center>
+<div style=" display: flex; justify-content: space-around; align-items:center; flex-direction: column;height: 100% ; width: 90%; margin-top: 20px">
+                        <div class="shadow p-4 mb-5 bg-body rounded ">
+                       
+<div style = "min-width: 300px; max-width: 600px">
+<h3  style="width: 100%;min-width: 300px; font-size: 15px;color:#0d0714;text-align: justify;">
+    <br>
+  <div style="display: flex; flex-direction:row; flex-wrap:no-wrap; justify-content:space-between;300px" >
+    <h4> Delete Iterm From Cart</h4>
+  </div>
+<br>
+You about to delete the following Iterm
+                 </h3>
+        <!-- Bottom Bar End --> 
+     
+{% if user.is_authenticated %}
+<div style="height: 450px;margin-top: 10px margin-bottom: 50px; display: flex;flex-direction: column;justify-content: center;">
+
+
+<form method="POST" action="" style="width: 70%; min-width: 280px; margin:auto; color: #36013f !important">
+    {% csrf_token %}
+    <div  style="display: flex;flex-direction: column;justify-content: space-around;">
+    <h1 style="text-align: center;color:red">Delete Product  {{object.product_name}} from cart</h1>
+    <br>
+    <h1 style="text-align: center;font-size:18px">Part No:{{object.product_part_number}}   <br>Model:{{object.model}} </h1>
+    <h1 style="text-align: center;font-size:18px">Description: {{object.product_description}}</h1>
+    <h1 style="text-align: center;font-size:18px">Specifications: {{object.product_name}}</h1>
+    {% comment %} {% if object.post_image %}
+    <img style="width: 100%; max-width: 500px;max-height: 300px" src="{{object.post_image.url}}">
+    {% endif %} {% endcomment %}
+    <strong style="text-align: center;">Are you sure you want to delete?</strong>
+    <br>
+<button type="submit" value="confirm" class="btn btn-danger" style="text-align: center;width: 100px">Delete</button>
+
+</div>
+{% else %}
+<h1>You need to sign in to login</h1>
+<a href="{% url 'register' %}"><h2>create account</h2></a>
+<a href="{% url 'login' %}"><h2>sign in</h2></a>
+    {% endif %}
+
+</form>
+</div>
+
+</div>
+</div>
+        <!-- Cart End -->
+        

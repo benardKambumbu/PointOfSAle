@@ -1,0 +1,330 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}Bk_User_account{% endblock %}</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="bkafrica user account" name="keywords">
+        <meta content="bkafrica zimbabwe" name="description">
+
+        <!-- Favicon -->
+          <link rel = "shortcut icon" type"image/png" href=" {% static 'bk/assets/images/favcon.png' %}">
+          
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Source+Code+Pro:700,900&display=swap" rel="stylesheet">
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="{% static 'shopping/assets/lib/slick/slick.css' %}" rel="stylesheet">
+        <link href="{% static 'shopping/assets/lib/slick/slick-theme.css' %}" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        
+        <link href="{% static 'shopping/assets/css/style.css' %}" rel="stylesheet">
+          <link rel = "shortcut icon" type"image/png" href=" {% static 'bk/assets/images/favcon.png' %}">
+            <!--=========================== bknav links =====================-->
+
+            <!--======BOX ICONS =====--->
+            <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+            <!--==== csss ==== ---->
+            <link rel="stylesheet" type="text/css" href="{% static 'nav/bknav.css' %}">
+      
+    </head>
+
+      <body >
+
+        <!-- Top bar Start -->
+
+    <!----========== bknav&topheader ======= ---->
+
+        <!-- Top bar End -->
+        
+        <!-- Nav Bar Start -->
+        <div class="nav">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                    <a href="#" class="navbar-brand">MENU</a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto">
+                            
+                            <a href="{% url 'index' %}" class="nav-item nav-link">Home</a>
+                            
+                                
+                            </div>
+                        </div>
+                        <div class="navbar-nav ml-auto">
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Settings</a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Nav Bar End -->      
+        
+       
+        {% if user %}
+        
+        <!-- Breadcrumb End -->
+        
+        <!-- My Account Start -->
+        <div class="my-account">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
+                            <a class="nav-link active" id="dashboard-nav" data-toggle="pill" href="#dashboard-tab" role="tab"><i class="fa fa-tachometer-alt"></i>Dashboard</a>
+                            <a class="nav-link" id="orders-nav" data-toggle="pill" href="#orders-tab" role="tab"><i class="fa fa-shopping-bag"></i>Policies</a>
+                            <a class="nav-link" id="payment-nav" data-toggle="pill" href="#payment-tab" role="tab"><i class="fa fa-credit-card"></i>My Services </a>
+                            <!--<a class="nav-link" id="address-nav" data-toggle="pill" href="#address-tab" role="tab"><i class="fa fa-map-marker-alt"></i>Settings</a>-->
+                            <a class="nav-link" id="account-nav" data-toggle="pill" href="#account-tab" role="tab"><i class="fa fa-user"></i>Manage account</a>
+                            <a class="nav-link" href="{% url 'logout' %}"><i class="fa fa-sign-out-alt"></i>Logout</a>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="tab-content">
+                            <div class="tab-pane  show active" id="dashboard-tab" role="tabpanel" aria-labelledby="dashboard-nav" style="opacity: 1 !important; color: black; height: 600px">
+                                <h4>Dashboard</h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In condimentum quam ac mi viverra dictum. In efficitur ipsum diam, at dignissim lorem tempor in. Vivamus tempor hendrerit finibus. Nulla tristique viverra nisl, sit amet bibendum ante suscipit non. Praesent in faucibus tellus, sed gravida lacus. Vivamus eu diam eros. Aliquam et sapien eget arcu rhoncus scelerisque.
+                                </p> 
+                            </div>
+                            <div class="tab-pane fade" id="orders-tab" role="tabpanel" aria-labelledby="orders-nav">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Product</th>
+                                                <th>Date</th>
+                                                <th>Price</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Product Name</td>
+                                                <td>01 Jan 2020</td>
+                                                <td>$99</td>
+                                                <td>Approved</td>
+                                                <td><button class="btn">View</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Product Name</td>
+                                                <td>01 Jan 2020</td>
+                                                <td>$99</td>
+                                                <td>Approved</td>
+                                                <td><button class="btn">View</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Product Name</td>
+                                                <td>01 Jan 2020</td>
+                                                <td>$99</td>
+                                                <td>Approved</td>
+                                                <td><button class="btn">View</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane " id="payment-tab" role="tabpanel" aria-labelledby="payment-nav" style="opacity: 1!important; color: black">
+                                  <h4>Dashboard</h4>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In condimentum quam ac mi viverra dictum. In efficitur ipsum diam, at dignissim lorem tempor in. Vivamus tempor hendrerit finibus. Nulla tristique viverra nisl, sit amet bibendum ante suscipit non. Praesent in faucibus tellus, sed gravida lacus. Vivamus eu diam eros. Aliquam et sapien eget arcu rhoncus scelerisque.
+                                </p> 
+                            </div>
+                            <div class="tab-pane fade" id="address-tab" role="tabpanel" aria-labelledby="address-nav" style="opacity: 1!important; color: black">
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+
+                                        <h5>Contact details</h5>
+                                        <p>call:{{user.phoneNo}}</p>
+                                        <p>whatsapp:{{user.whatsapp}}</p>
+                                        <p>facebook:{{user.facebook}}</p>
+                                        <button class="btn">Edit Address</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5>Delivery Address</h5>
+                                        <p>{{user.member_address}}</p>
+                                        <p>{{user.member_city}}</p>
+                                        <button class="btn">Edit Address</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="account-tab" role="tabpanel" aria-labelledby="account-nav" style="opacity: 1!important; color: black">
+                                {% if user.is_authenticated %}
+                                <h4>Account Details</h4>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                    <div style="width: 280px;height: 280px; display: flex; justify-content: space-around; align-items:center">
+                                        <img  src="{{bkuser.profile_image.url}}"></div>
+                                        <br>
+                                        <hr>
+                                        <h5 style="font-size: 18px"><small> Username:</small> {{user.username|capfirst}} {{user.member_surname|capfirst}}</h5>
+                                        <h5 style="font-size: 18px"><small> email:</small> {{user.email}}</h5>
+                                        {% if bkuser.phoneNo %}
+                                        <h5 style="font-size: 18px"><small> Phone#:</small> {{bkuser.phoneNo}}</h5>
+                                        {% endif %}
+                                        {% if bkuser.phoneNo_2 %}
+                                        <h5 style="font-size: 18px"><small> Phone#:</small> {{bkuser.phoneNo_2}}</h5>
+                                        {% endif %}
+                                        {% if bkuser.whatsapp %}
+                                        <h5 style="font-size: 18px"><small> Whatsapp:</small> {{bkuser.whatsapp}}</h5>
+                                        {% endif %}
+                                        {% if bkuser.facebook %}
+                                        <h5 style="font-size: 18px"><small> Facebook:</small> {{bkuser.facebook}}</h5>
+                                        {% endif %}
+                                        
+
+                                    </div>
+                                                                        
+                                    <div class="col-md-6">
+                                        <h5 style="font-size: 15px"><small> bio</small><br> {{bkuser.bio|safe}}</h5>
+                                    
+                                        <br>
+                                        {% if bkuser.address %}
+                                        <h5><small> Address:</small> {{bkuser.address}}</h5>
+                                        {% endif %}
+                                        <hr>
+                                        <br><br>
+                                    <a href="{% url 'userprofile' user.pk %}"><button class="btn">Update Account</button></a>
+                                     <a class="nav-link" href="{% url 'logout' %}"><i class="fa fa-sign-out-alt"></i>Logout</a>
+                                    </div>
+                                {% else %}
+                                    <div class="col-md-12">
+                                           
+                                         <a href="{% url 'register'  %}"><button class="btn">Create Account</button></a>
+                                         <a href="{% url 'login'  %}"><button class="btn">Login</button></a>
+                                          <!--<a href="{% url 'register22'  %}"><button class="btn">Update Account</button></a>-->
+                                        <br><br>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="col-md-6" style="height: 400px; display: flex;justify-content: center;width: 100%">
+            <a href=" {% url 'createshopuser' %}" style="width: 100%; text-align: center;"><h5 style="text-align: center; width: 100%">Create Account</h5></a>
+            
+        </div>
+        {% endif  %}
+        <!-- My Account End -->
+<br>
+        <br>
+        <!-- Footer Start -->
+        <div class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            {% if object.address or object.email or object.phoneNo %}
+                            <h2>Get in Touch</h2>
+                            <div class="contact-info">
+                                <p><i class="fa fa-map-marker"></i>{{object.address}}</p>
+                                <p><i class="fa fa-envelope"></i>{{object.email}}</p>
+                                <p><i class="fa fa-phone"></i>{{object.phoneNo}}</p>
+                            </div>
+                            {% else %}
+                            
+                            <div class="contact-info">
+                                
+                                <p><i class="fa fa-envelope"></i>help@bkafrica.co.zw</p>
+                                <p><i class="fa fa-phone"></i>+263777837916</p>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            
+                            <div class="contact-info">
+                                <div class="social">
+                                    <a href=""><i class="fab fa-twitter"></i></a>
+                                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                    <a href=""><i class="fab fa-instagram"></i></a>
+                                    <a href=""><i class="fab fa-youtube"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            
+                            <ul>
+                                <li><a href="">About Us</a></li>
+                                <li><a href="">Terms & Condition</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-widget">
+                            
+                            <ul>
+                                <li><a href="">Trending</a></li>
+                                <li><a href="">OnlineShopping</a></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        
+        <!-- Footer Bottom Start -->
+        <div class="" style="margin-top: 50px">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 copyright">
+                        <p>Copyright &copy; <a href="https://bkafrica.co.zw">bkAfrica</a>. All Rights Reserved</p>
+                    </div>
+
+                    <div class="col-md-6 template-by">
+                        <p>by <a href="https://bkafrica.co.zw">BesTech</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Bottom End -->       
+        
+
+        <!-- Back to Top -->
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="{% static 'shopping/assets/lib/easing/easing.min.js' %}"></script>
+        <script src=" {% static 'shopping/assets/lib/slick/slick.min.js' %}"></script>
+        {% include 'navlinks2.html' %}
+        <!-- Template Javascript -->
+        <script src=" {% static 'shopping/assets/js/main.js' %}"></script>
+   
+    </body>
+</html>

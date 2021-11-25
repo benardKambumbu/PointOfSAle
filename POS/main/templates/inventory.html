@@ -1,0 +1,114 @@
+{% extends 'indexdash.html' %}
+{% load static %} 
+{% block title %} Check Inventory {% endblock %} 
+{% block extracss %}
+<link href="{% static 'dashboard/assets/css/vendor/dataTables.bootstrap5.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'dashboard/assets/css/vendor/responsive.bootstrap5.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'dashboard/assets/css/vendor/buttons.bootstrap5.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'dashboard/assets/css/vendor/select.bootstrap5.css' %}" rel="stylesheet" type="text/css" />
+{% endblock %} 
+
+{% block extrajs %}
+<!-- Datatables js -->
+
+
+ <script src="{% static 'dashboard/assets/js/vendor/jquery.dataTables.min.js' %}"></script>
+        <script src="{% static 'dashboard/assets/js/vendor/dataTables.bootstrap5.js' %}"></script>
+        <script src="{% static 'dashboard/assets/js/vendor/dataTables.responsive.min.js' %}"></script>
+        <script src="{% static 'dashboard/assets/js/vendor/responsive.bootstrap5.min.js' %}"></script>
+        <script src="{% static 'dashboard/assets/js/vendor/dataTables.buttons.min.js' %}"></script>
+        <script src="{% static 'dashboard/assets/js/vendor/buttons.bootstrap5.min.js' %}"></script>
+        <script src="{% static 'dashboard/assets/js/vendor/buttons.html5.min.js' %}"></script>
+        <script src="{% static 'dashboard/assets/js/vendor/buttons.flash.min.js' %}"></script>
+        <script src="{% static 'dashboard/assets/js/vendor/buttons.print.min.js' %}"></script>
+        <script src="{% static 'dashboard/assets/js/vendor/dataTables.keyTable.min.js' %}"></script>
+        <script src="{% static 'dashboard/assets/js/vendor/dataTables.select.min.js' %}"></script>
+        <script src="{% static 'dashboard/assets/js/pages/demo.datatable-init.js' %}"></script>
+  <script src="assets/js/pages/demo.datatable-init.js"></script>
+{% endblock %}
+
+
+
+   
+
+ {% block main %}
+     <!-- Start Content-->
+                    <div class="container-fluid">
+                        
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box">
+                                    <div class="page-title-right">
+                                       
+                                    </div>
+                                    <div style="display:flex; flex-direction:row;justify-contenct:end; align-iterms:center">
+                                    <h4 class="page-title">Inventory</h4>
+                                    <a style="margin-left: 350px; height:35px; margin-top:25px" href="{% url 'inventory1' %}" class="btn btn-primary">
+                                                                <i class="mdi mdi-cart-plus me-1"></i>All </a>
+                                    <a style="margin-left: 10px; height:35px; margin-top:25px" href="{% url 'inventory2' %}" class="btn btn-danger">
+                                                                <i class="mdi mdi-cart-plus me-1"></i> Shop 1</a>
+                                    <a style="margin-left: 10px; height:35px; margin-top:25px" href="{% url 'inventory3' %}" class="btn btn-danger">
+                                                                <i class="mdi mdi-cart-plus me-1"></i>  shop2</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>     
+                       
+        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+
+                                        <div class="tab-content">
+                                            <div class="tab-pane show active" id="buttons-table-preview">
+                                                <table id="datatable-buttons" class="table table-striped dt-responsive nowrap w-100">
+                                                    <thead>
+                                                        <tr>
+                                                            
+                                                            <th>Name</th>
+                                                            <th>Part Number</th>
+                                                            <th>Price</th>
+                                                            <th>Model</th>
+                                                            <th>Description</th>
+                                                            <th>Specifications</th>
+                                                            <th>last Price</th>
+                                                            <th>Quantity</th>
+                                                        </tr>
+                                                    </thead>
+                                                
+                                                
+                                                    <tbody>
+                                                        {% if products %}
+                                                        {% for product in products %}
+                                                        <tr>
+                                                            <td>{{ product.product_name }}</td>
+                                                            <td>{{ product.product_part_number }}</td>
+                                                            <td>{{ product.product_price }}</td>
+                                                            <td>{{ product.product_model }}</td>
+                                                            <td>{{ product.product_description }}</td>
+                                                            <td>{{ product.product_specifications }}</td>
+                                                            <td>{{ product.product_last_price }}</td>
+                                                            <td>{{ product.product_quantity }}</td>
+                                                        </tr>
+                                                        {% endfor %}
+                                                        {% endif %}
+                                                        
+                                                    </tbody>
+                                                </table>                                           
+                                            </div> <!-- end preview-->
+                                        
+
+                                        </div> <!-- end tab-content-->
+                                        
+                                    </div> <!-- end card body-->
+                                </div> <!-- end card -->
+                            </div><!-- end col-->
+                        </div>
+                        <!-- end row-->
+                    </div> <!-- content -->
+
+{% endblock %}
+                
+
+               

@@ -1,0 +1,136 @@
+{% extends 'indexdash.html' %}
+{% load static %} 
+{% block title %} create product {% endblock %} 
+
+
+
+
+    {% block main %}
+
+        <div class="row m-3"  >
+            <div class="col-lg-12">
+                <h4 class="mt-2">Product information</h4>
+
+                <p class="text-muted mb-4">Fill the form below in order to
+                    send you the order's invoice.</p>
+
+                <form method="POST" action="{% url 'addProduct' %}" enctype="multipart/form-data" >
+                    {% csrf_token %}
+                   
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="billing-first-name" name = 'productName' class="form-label">Product Name<span class="text-danger">*</span></label>
+                                <input class="form-control" name = 'productName' type="text" placeholder="productName" id="billing-first-name" required/>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="productModel" class="form-label">Model <span class="text-danger">*</span></label>
+                                <input class="form-control" name = "productModel" type="text" placeholder="Enter Product Model" id="productModel" required/>
+                            </div>
+                        </div>
+                    </div> <!-- end row -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="productNo" class="form-label">P/N </label>
+                                <input class="form-control" type="text" placeholder="Enter Part Number" name="productNo" id="productNo" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="quantity" class="form-label">Quantity <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text" placeholder="Enter Product Quantity" name="quantity" id="quantity" required/>
+                            </div>
+                        </div>
+                    </div> <!-- end row -->
+                    
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="mb-3">
+                                <label for="productDescription" class="form-label">Product Description<span class="text-danger">*</span></label>
+                                <input class="form-control" name='productDescription' type="textarea" placeholder="Enter Description" id="productDescription" required/>
+                            </div>
+                        </div>
+                    </div> <!-- end row -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="productSpecification" class="form-label">Specification</label>
+                                <input class="form-control" type="text" placeholder="Enter Product Specification" name="productSpecification" id="productSpecification" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="productSize" class="form-label">Size</label>
+                                <input class="form-control" type="text" placeholder="Enter Product Size" name="productSize" id="productSize" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="input-group " style="padding-top: 29px;">
+                             <label class="input-group-text" for="inputGroupSelect01">Shop</label>
+                             <select name = 'shopName' class="form-select" id="inputGroupSelect01">
+                             <option selected>Choose Shop</option>
+                             <option name = 'shopName' value="1">shop 1</option>
+                             <option name = 'shopName' value="2">shop 2</option>
+                             </select>
+                           </div>  
+                         </div>
+                        
+                    </div> <!-- end row -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="productExtra" class="form-label">Product Price <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text" placeholder="Enter Product Price" name = "productPrice" id="productPrice" required/>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label for="lastPrice" class="form-label">Last Price</label>
+                                <input class="form-control" type="text" placeholder="Enter Last Price" name="lastPrice" id="lastPrice" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="mt-4">
+                                <div class="form-check form-switch">
+                                    <input type="checkbox" name = 'productPromote' class="form-check-input" id="customSwitch1">
+                                    <label class="form-check-label" for="customSwitch1">Promote</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label for="promotePrice" class="form-label">Promotion Price</label>
+                                <input class="form-control" type="text" placeholder="Enter Promotion Price" name = "promotePrice" id="promotePrice" />
+                            </div>
+                        </div>
+                    </div> <!-- end row -->
+                    
+
+                  
+
+                    <div class="row mt-2">
+                        <div class="col-sm-6">
+                            <a href="{% url 'dash-shopcart' %}" class="btn text-muted d-none d-sm-inline-block btn-link fw-semibold">
+                                <i class="mdi mdi-arrow-left"></i> Go to POS</a>
+                        </div> <!-- end col -->
+                        <div class="col-sm-6 ">
+                            <div class="text-sm-end">
+    
+                                <button type ="Submit"  class="btn btn-danger"><i class="mdi mdi-plus-circle-outline me-1"></i> Create Product</button>
+                            </div>
+                        </div> <!-- end col -->
+                    </div> <!-- end row -->
+                </form>
+            </div>
+                        
+        </div> <!-- end row-->
+    {% endblock %}
+
+ 
+
+ 
+
+
